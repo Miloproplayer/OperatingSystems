@@ -1,2 +1,2 @@
 # OperatingSystems
-Uab i chuj
+Uab
