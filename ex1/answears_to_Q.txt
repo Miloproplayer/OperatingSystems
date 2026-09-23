@@ -1,0 +1,74 @@
+Exercise 1: Process Creation
+
+Questions on pexample1.c:
+a) Do the parent and child share the same program code? Do the parent and child execute the same lines of code? How do we tell which part of the code each process executes?
+
+b) What does the getpid() function do? Can getpid() return the same result for two different processes? Can it return zero? Describe what tests you carried out to check this.
+
+c) What would happen if the child called wait()?
+
+d) Is it true that, since the parent creates the child with fork(), the parent always runs first? How can you verify this?
+
+After extending the code to create 50 child processes:
+e) What do you observe in the results when running the program multiple times?
+
+f) Does it always produce the same results?
+
+g) Do the processes always execute in the same order? How did you check this? Why does this happen?
+
+
+
+
+Exercise 2: Process Memory Space and Concurrency
+
+Questions on pexample2.c:
+a) Do the two processes print the same number on screen? Why?
+
+b) What would happen if both printf() calls were made before the assignment to number? Why?
+
+c) Does the outcome of the program's execution depend on the order in which the two processes assign a value to the variable number? Why?
+
+d) At what point in the program is space reserved for each number variable?
+
+e) Is more than one CPU needed to run the above code? If not, describe how the two processes would run on a single-CPU processor. For example, you can explain the instructions of each process as they get executed.
+
+
+
+
+Exercise 3: Inter-Process Communication. Pipes
+
+Questions on pexample3.c:
+
+What happens if the parent sends the data before the child is reading from the other end? Is the data lost? Does an error occur?
+What happens if the child tries to read the data before the parent has written to the other end? Will the child's call to read() be ignored?
+What will happen to the parent if the pipe is full? What will happen to the child if the pipe is empty?
+What happens if we try to read from a pipe whose other end has been closed? What happens if we try to write into a pipe whose other end has been closed?
+
+Coding task: Extend the code so that the parent process sends the child process a character buffer (string) containing "SOY TU PADRE".
+
+
+
+
+Exercise 4: Process Life Cycle
+
+On orphan.c:
+
+Make the child process print the PID of its new parent on screen.
+What is the PID of the new parent process?
+What is special about the new parent process?
+
+On zombie.c:
+
+Print on screen (using print_child_status()) the state of the child process once it has terminated. What state is it in?
+Send a SIGKILL signal to the child process. Does its state change? Why?
+Check the state again after calling wait(). Does the zombie process still exist? Why?
+
+
+
+
+Exercise 5: Running Commands with execvp()
+
+No explicit written questions — the deliverable is the completed code:
+
+Fill in the execute_command() function in the mini-shell.c skeleton.
+Verify correct operation using basic Linux commands (ls, cat, echo, ps, etc.).
